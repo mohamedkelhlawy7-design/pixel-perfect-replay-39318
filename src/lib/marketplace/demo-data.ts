@@ -659,7 +659,7 @@ export const SERVICES: Service[] = SEEDS.map(({ pkg, ...seed }, i) => ({
 /** Services awaiting admin approval (sample). */
 export const PENDING_SERVICES: Service[] = [
   {
-    ...SERVICES[0],
+    ...SERVICES[0]!,
     id: "pending-solar-pv-design",
     title: "تصميم أنظمة الطاقة الشمسية للمنازل",
     summary: "حساب عدد الألواح والعاكس والبطاريات.",
@@ -670,7 +670,7 @@ export const PENDING_SERVICES: Service[] = [
     rating: 0,
   },
   {
-    ...SERVICES[6],
+    ...SERVICES[6]!,
     id: "pending-motion-graphics",
     title: "موشن جرافيك تعريفي ٦٠ ثانية",
     providerId: "reem-almansoori",
