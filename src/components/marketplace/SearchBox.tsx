@@ -21,7 +21,8 @@ export function SearchBox({
       role="search"
       onSubmit={(e) => {
         e.preventDefault();
-        navigate({ to: "/services", search: { q: q.trim() || undefined } });
+        const term = q.trim();
+        navigate({ to: "/services", search: term ? { q: term } : {} });
       }}
       className={cn(
         "flex items-center gap-2 rounded-2xl border bg-surface p-1.5 shadow-card focus-within:ring-2 focus-within:ring-ring/40",

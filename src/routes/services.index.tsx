@@ -10,9 +10,12 @@ type CatalogSearch = { q?: string; category?: CategorySlug; sort?: ServiceSort }
 export const Route = createFileRoute("/services/")({
   validateSearch: (search: Record<string, unknown>): CatalogSearch => {
     const out: CatalogSearch = {};
-    if (typeof search.q === "string" && search.q) out.q = search.q;
-    if (isCategorySlug(search.category)) out.category = search.category;
-    if (isServiceSort(search.sort)) out.sort = search.sort;
+    const q = search["q"];
+    const category = search["category"];
+    const sort = search["sort"];
+    if (typeof q === "string" && q) out.q = q;
+    if (isCategorySlug(category)) out.category = category;
+    if (isServiceSort(sort)) out.sort = sort;
     return out;
   },
   head: () => ({
