@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+<!-- AGENT-MEMORY:BEGIN -->
+- Marketplace data is read only through `src/lib/marketplace/catalog.ts` (demo data today) — so swapping to a database touches one module, not the UI.
+- AI service matching: prompt + SDK call live in `src/lib/marketplace/ai-match.server.ts`, exposed via the public `matchServices` server fn; model output is validated by `parseMatchResult` against real catalog ids — the model must never invent services.
+<!-- AGENT-MEMORY:END -->

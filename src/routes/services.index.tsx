@@ -4,6 +4,7 @@ import type { CategorySlug, ServiceSort } from "@/lib/marketplace/types";
 import { ServiceCard } from "@/components/marketplace/ServiceCard";
 import { SearchBox } from "@/components/marketplace/SearchBox";
 import { DemoBanner } from "@/components/marketplace/DemoNotice";
+import { AiServiceMatcher } from "@/components/marketplace/AiServiceMatcher";
 
 type CatalogSearch = { q?: string; category?: CategorySlug; sort?: ServiceSort };
 
@@ -35,6 +36,9 @@ function ServicesPage() {
   return (
     <main className="container-page py-10">
       <h1 className="font-display text-3xl font-bold">الخدمات</h1>
+      <div className="mt-6">
+        <AiServiceMatcher />
+      </div>
       <SearchBox defaultValue={search.q ?? ""} size="md" className="mt-6 max-w-2xl" />
       <div className="mt-6"><DemoBanner /></div>
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
