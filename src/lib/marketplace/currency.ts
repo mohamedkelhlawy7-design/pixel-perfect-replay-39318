@@ -3,12 +3,13 @@ import type { CountryCode, CurrencyCode } from "./types";
 /** Gulf currencies supported by the platform. SAR is the launch default. */
 export const DEFAULT_CURRENCY: CurrencyCode = "SAR";
 
-export const CURRENCIES: Record<CurrencyCode, { symbol: string; name: string; decimals: number }> = {
-  SAR: { symbol: "ر.س", name: "ريال سعودي", decimals: 0 },
-  AED: { symbol: "د.إ", name: "درهم إماراتي", decimals: 0 },
-  KWD: { symbol: "د.ك", name: "دينار كويتي", decimals: 3 },
-  QAR: { symbol: "ر.ق", name: "ريال قطري", decimals: 0 },
-};
+export const CURRENCIES: Record<CurrencyCode, { symbol: string; name: string; decimals: number }> =
+  {
+    SAR: { symbol: "ر.س", name: "ريال سعودي", decimals: 0 },
+    AED: { symbol: "د.إ", name: "درهم إماراتي", decimals: 0 },
+    KWD: { symbol: "د.ك", name: "دينار كويتي", decimals: 3 },
+    QAR: { symbol: "ر.ق", name: "ريال قطري", decimals: 0 },
+  };
 
 export const COUNTRIES: Record<CountryCode, { name: string; currency: CurrencyCode }> = {
   SA: { name: "السعودية", currency: "SAR" },

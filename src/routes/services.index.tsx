@@ -22,9 +22,15 @@ export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "الخدمات | رِفاد" },
-      { name: "description", content: "تصفح خدمات هندسية وتصميم وبرمجة ومسار مهني من مزوّدين مستقلين في الخليج." },
+      {
+        name: "description",
+        content: "تصفح خدمات هندسية وتصميم وبرمجة ومسار مهني من مزوّدين مستقلين في الخليج.",
+      },
       { property: "og:title", content: "الخدمات | رِفاد" },
-      { property: "og:description", content: "تصفح خدمات رِفاد الرقمية في السعودية والإمارات والكويت وقطر." },
+      {
+        property: "og:description",
+        content: "تصفح خدمات رِفاد الرقمية في السعودية والإمارات والكويت وقطر.",
+      },
     ],
   }),
   component: ServicesPage,
@@ -40,11 +46,17 @@ function ServicesPage() {
         <AiServiceMatcher />
       </div>
       <SearchBox defaultValue={search.q ?? ""} size="md" className="mt-6 max-w-2xl" />
-      <div className="mt-6"><DemoBanner /></div>
-      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {services.map((s) => <ServiceCard key={s.id} service={s} />)}
+      <div className="mt-6">
+        <DemoBanner />
       </div>
-      {services.length === 0 && <p className="mt-10 text-muted-foreground">لا توجد خدمات مطابقة.</p>}
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {services.map((s) => (
+          <ServiceCard key={s.id} service={s} />
+        ))}
+      </div>
+      {services.length === 0 && (
+        <p className="mt-10 text-muted-foreground">لا توجد خدمات مطابقة.</p>
+      )}
     </main>
   );
 }

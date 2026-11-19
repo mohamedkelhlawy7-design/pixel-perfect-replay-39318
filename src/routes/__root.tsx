@@ -82,10 +82,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "رِفاد | RIFAD — مهارات تصنع فرقاً" },
-      { name: "description", content: "سوق خدمات رقمية يربط العملاء في الخليج بمزوّدين مستقلين محترفين." },
+      {
+        name: "description",
+        content: "سوق خدمات رقمية يربط العملاء في الخليج بمزوّدين مستقلين محترفين.",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "رِفاد | RIFAD" },
-      { property: "og:description", content: "مهارات تصنع فرقاً — خدمات هندسية وتصميم وبرمجة ومسار مهني." },
+      {
+        property: "og:description",
+        content: "مهارات تصنع فرقاً — خدمات هندسية وتصميم وبرمجة ومسار مهني.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },

@@ -48,7 +48,10 @@ export async function matchServicesForNeed(need: string): Promise<MatchResponse>
       if (item.type !== "message") continue;
       for (const part of item.content) {
         if (part.type === "refusal") {
-          return { ok: false, error: "تعذّر التعامل مع هذا الطلب. جرّب وصف الخدمة التي تحتاجها بشكل مختلف." };
+          return {
+            ok: false,
+            error: "تعذّر التعامل مع هذا الطلب. جرّب وصف الخدمة التي تحتاجها بشكل مختلف.",
+          };
         }
         text += part.text;
       }
@@ -62,18 +65,26 @@ export async function matchServicesForNeed(need: string): Promise<MatchResponse>
       return { ok: false, error: "لم نتمكن من قراءة الاقتراحات هذه المرة. حاول مرة أخرى." };
     }
     const parsed = parseMatchResult(raw, new Set(ids));
-    if (!parsed) return { ok: false, error: "لم نتمكن من قراءة الاقتراحات هذه المرة. حاول مرة أخرى." };
+    if (!parsed)
+      return { ok: false, error: "لم نتمكن من قراءة الاقتراحات هذه المرة. حاول مرة أخرى." };
     return { ok: true, ...parsed };
   } catch (error) {
     if (error instanceof GatewayError) {
-      console.error("[ai-match] gateway error", { code: error.code, status: error.httpStatus, ids: error.ids });
+      console.error("[ai-match] gateway error", {
+        code: error.code,
+        status: error.httpStatus,
+        ids: error.ids,
+      });
       if (error.httpStatus === 429) {
         return { ok: false, error: "الطلبات كثيرة حالياً. انتظر لحظات ثم حاول مجدداً." };
       }
       if (error.httpStatus === 402) {
         return { ok: false, error: "المساعد الذكي غير متاح مؤقتاً. يمكنك تصفح الخدمات يدوياً." };
       }
-      return { ok: false, error: "المساعد الذكي غير متاح الآن. حاول بعد قليل أو تصفح الخدمات يدوياً." };
+      return {
+        ok: false,
+        error: "المساعد الذكي غير متاح الآن. حاول بعد قليل أو تصفح الخدمات يدوياً.",
+      };
     }
     throw error;
   }

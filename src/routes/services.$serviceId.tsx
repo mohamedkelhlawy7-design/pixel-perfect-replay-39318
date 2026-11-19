@@ -15,7 +15,10 @@ export const Route = createFileRoute("/services/$serviceId")({
       { title: loaderData ? `${loaderData.service.title} | رِفاد` : "خدمة | رِفاد" },
       { name: "description", content: loaderData?.service.summary ?? "تفاصيل الخدمة على رِفاد." },
       { property: "og:title", content: loaderData?.service.title ?? "خدمة | رِفاد" },
-      { property: "og:description", content: loaderData?.service.summary ?? "تفاصيل الخدمة على رِفاد." },
+      {
+        property: "og:description",
+        content: loaderData?.service.summary ?? "تفاصيل الخدمة على رِفاد.",
+      },
     ],
   }),
   component: ServicePage,
@@ -34,7 +37,9 @@ function ServicePage() {
         <span>التسليم خلال {service.deliveryDays} أيام</span>
       </div>
       <p className="mt-6 leading-loose">{service.description}</p>
-      <p className="mt-6 font-display text-2xl font-bold">يبدأ من {formatPrice(service.price, service.currency)}</p>
+      <p className="mt-6 font-display text-2xl font-bold">
+        يبدأ من {formatPrice(service.price, service.currency)}
+      </p>
     </main>
   );
 }

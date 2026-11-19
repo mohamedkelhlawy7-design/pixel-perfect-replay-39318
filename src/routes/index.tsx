@@ -21,7 +21,10 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "رِفاد | RIFAD — مهارات تصنع فرقاً" },
-      { name: "description", content: "سوق خدمات رقمية يربط العملاء في الخليج بمزوّدين مستقلين محترفين." },
+      {
+        name: "description",
+        content: "سوق خدمات رقمية يربط العملاء في الخليج بمزوّدين مستقلين محترفين.",
+      },
     ],
   }),
   component: Index,
@@ -101,8 +104,8 @@ function Index() {
                 مهارات تصنع فرقاً
               </h1>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-navy-foreground/70 sm:text-lg">
-                من مخططات كهرباء إلى هوية بصرية وسيرة ذاتية — انشر طلبك أو اختر من خدمات
-                مزوّدين مستقلين محترفين في السعودية والإمارات والكويت وقطر.
+                من مخططات كهرباء إلى هوية بصرية وسيرة ذاتية — انشر طلبك أو اختر من خدمات مزوّدين
+                مستقلين محترفين في السعودية والإمارات والكويت وقطر.
               </p>
               <div className="mx-auto mt-8 max-w-2xl">
                 <SearchBox />
@@ -174,7 +177,9 @@ function Index() {
                   <h3 className="font-display text-base font-semibold text-foreground">
                     {cat.name}
                   </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{cat.description}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    {cat.description}
+                  </p>
                 </div>
                 <div className="mt-auto flex items-center justify-between text-xs">
                   <span className="text-muted-foreground">{count} خدمة</span>
@@ -308,9 +313,7 @@ function Index() {
         <div className="relative overflow-hidden rounded-3xl bg-gradient-navy p-8 text-center text-navy-foreground shadow-lift sm:p-12 lg:p-16">
           <div className="pattern-geo pointer-events-none absolute inset-0 opacity-40" />
           <div className="relative mx-auto max-w-2xl">
-            <h2 className="font-display text-2xl font-bold sm:text-3xl">
-              هل لديك مهارة تقدّمها؟
-            </h2>
+            <h2 className="font-display text-2xl font-bold sm:text-3xl">هل لديك مهارة تقدّمها؟</h2>
             <p className="mt-3 text-navy-foreground/70">
               انضمّ إلى رِفاد ك مزوّد مستقل واصل إلى عملاء في الخليج، وابدأ بعرض خدماتك اليوم.
             </p>

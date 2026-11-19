@@ -52,7 +52,9 @@ export function ServiceCard({ service }: { service: Service }) {
         </div>
         <div className="mt-auto flex items-end justify-between border-t pt-3">
           <span className="text-xs text-muted-foreground">يبدأ من</span>
-          <span className="font-display text-lg font-bold text-navy">{formatPrice(service.price, service.currency)}</span>
+          <span className="font-display text-lg font-bold text-navy">
+            {formatPrice(service.price, service.currency)}
+          </span>
         </div>
       </div>
     </Link>

@@ -37,7 +37,13 @@ export function filterServices(services: Service[], filters: ServiceFilters): Se
     result = result.filter((s) => {
       const provider = getProvider(s.providerId);
       const haystack = normalize(
-        [s.title, s.summary, ...s.tags, provider?.name ?? "", getCategory(s.category)?.name ?? ""].join(" "),
+        [
+          s.title,
+          s.summary,
+          ...s.tags,
+          provider?.name ?? "",
+          getCategory(s.category)?.name ?? "",
+        ].join(" "),
       );
       return q.split(/\s+/).every((word) => haystack.includes(word));
     });
@@ -57,7 +63,9 @@ export function filterServices(services: Service[], filters: ServiceFilters): Se
       sorted.sort((a, b) => a.deliveryDays - b.deliveryDays);
       break;
     default:
-      sorted.sort((a, b) => Number(!!b.featured) - Number(!!a.featured) || b.ordersCount - a.ordersCount);
+      sorted.sort(
+        (a, b) => Number(!!b.featured) - Number(!!a.featured) || b.ordersCount - a.ordersCount,
+      );
   }
   return sorted;
 }
@@ -73,8 +81,10 @@ export const getCategory = (slug: string) => CATEGORIES.find((c) => c.slug === s
 export const getCategories = () => CATEGORIES;
 export const getServicesByProvider = (providerId: string) =>
   SERVICES.filter((s) => s.providerId === providerId);
-export const getReviewsForService = (serviceId: string) => REVIEWS.filter((r) => r.serviceId === serviceId);
-export const getReviewsForProvider = (providerId: string) => REVIEWS.filter((r) => r.providerId === providerId);
+export const getReviewsForService = (serviceId: string) =>
+  REVIEWS.filter((r) => r.serviceId === serviceId);
+export const getReviewsForProvider = (providerId: string) =>
+  REVIEWS.filter((r) => r.providerId === providerId);
 export const getAllReviews = () => REVIEWS;
 export const countServicesInCategory = (slug: CategorySlug) =>
   SERVICES.filter((s) => s.category === slug).length;

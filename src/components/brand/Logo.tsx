@@ -17,9 +17,19 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; className?: string }) {
+export function Logo({
+  tone = "dark",
+  className,
+}: {
+  tone?: "dark" | "light";
+  className?: string;
+}) {
   return (
-    <Link to="/" className={cn("group inline-flex items-center gap-2.5", className)} aria-label="رِفاد — الصفحة الرئيسية">
+    <Link
+      to="/"
+      className={cn("group inline-flex items-center gap-2.5", className)}
+      aria-label="رِفاد — الصفحة الرئيسية"
+    >
       <LogoMark className="transition-transform duration-500 group-hover:rotate-45" />
       <span className="flex flex-col leading-none">
         <span

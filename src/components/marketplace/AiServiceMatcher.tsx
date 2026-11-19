@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, Loader2, Sparkles } from "lucide-react";
+import { ArrowLeft, Loader as Loader2, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -46,7 +46,8 @@ export function AiServiceMatcher() {
           </h2>
         </div>
         <p className="mt-2 max-w-2xl text-sm text-navy-foreground/70">
-          اكتب احتياجك بكلماتك، وسيقرأ المساعد الذكي الخدمات المتاحة ويرشّح لك الأنسب مع سبب الاختيار.
+          اكتب احتياجك بكلماتك، وسيقرأ المساعد الذكي الخدمات المتاحة ويرشّح لك الأنسب مع سبب
+          الاختيار.
         </p>
 
         <form
@@ -84,7 +85,12 @@ export function AiServiceMatcher() {
               <span className="text-xs text-navy-foreground/50">
                 {trimmed.length}/{MATCH_QUERY_MAX}
               </span>
-              <Button type="submit" variant="teal" size="lg" disabled={tooShort || mutation.isPending}>
+              <Button
+                type="submit"
+                variant="teal"
+                size="lg"
+                disabled={tooShort || mutation.isPending}
+              >
                 {mutation.isPending ? <Loader2 className="animate-spin" /> : <Sparkles />}
                 {mutation.isPending ? "نبحث لك…" : "اقترح لي خدمات"}
               </Button>
@@ -93,19 +99,27 @@ export function AiServiceMatcher() {
         </form>
 
         {mutation.isError && (
-          <p role="alert" className="mt-5 rounded-xl bg-danger-soft px-4 py-3 text-sm text-destructive">
+          <p
+            role="alert"
+            className="mt-5 rounded-xl bg-danger-soft px-4 py-3 text-sm text-destructive"
+          >
             {mutation.error.message || "حدث خطأ غير متوقع. حاول مرة أخرى."}
           </p>
         )}
         {result && !result.ok && (
-          <p role="alert" className="mt-5 rounded-xl bg-danger-soft px-4 py-3 text-sm text-destructive">
+          <p
+            role="alert"
+            className="mt-5 rounded-xl bg-danger-soft px-4 py-3 text-sm text-destructive"
+          >
             {result.error}
           </p>
         )}
 
         {result?.ok && (
           <div className="mt-6 animate-fade-up" aria-live="polite">
-            {result.summary && <p className="text-sm leading-relaxed text-navy-foreground/85">{result.summary}</p>}
+            {result.summary && (
+              <p className="text-sm leading-relaxed text-navy-foreground/85">{result.summary}</p>
+            )}
             {result.matches.length > 0 && (
               <ul className="mt-4 grid gap-3 md:grid-cols-2">
                 {result.matches.map((m) => {
@@ -131,8 +145,14 @@ export function AiServiceMatcher() {
                             </Badge>
                             <Rating value={service.rating} />
                           </div>
-                          <h3 className="mt-1.5 line-clamp-1 font-display text-sm font-semibold">{service.title}</h3>
-                          {m.reason && <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{m.reason}</p>}
+                          <h3 className="mt-1.5 line-clamp-1 font-display text-sm font-semibold">
+                            {service.title}
+                          </h3>
+                          {m.reason && (
+                            <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                              {m.reason}
+                            </p>
+                          )}
                           <div className="mt-2 flex items-center justify-between text-xs">
                             <span className="text-muted-foreground">{provider?.name}</span>
                             <span className="inline-flex items-center gap-1 font-semibold text-navy">

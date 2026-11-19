@@ -94,12 +94,7 @@ export interface Review {
 }
 
 export type OrderStatus =
-  | "pending"
-  | "in_progress"
-  | "delivered"
-  | "revision"
-  | "completed"
-  | "cancelled";
+  "pending" | "in_progress" | "delivered" | "revision" | "completed" | "cancelled";
 
 export interface OrderFile {
   name: string;

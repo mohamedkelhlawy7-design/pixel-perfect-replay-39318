@@ -1,4 +1,11 @@
-import { BriefcaseBusiness, CodeXml, DraftingCompass, FileSpreadsheet, Palette, type LucideIcon } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  CodeXml,
+  DraftingCompass,
+  FileSpreadsheet,
+  Palette,
+  type LucideIcon,
+} from "lucide-react";
 import type { CategorySlug } from "@/lib/marketplace/types";
 
 export const CATEGORY_ICONS: Record<CategorySlug, LucideIcon> = {

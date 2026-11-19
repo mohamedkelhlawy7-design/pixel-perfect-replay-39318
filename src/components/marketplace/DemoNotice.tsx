@@ -3,7 +3,13 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 /** Marks content as sample data so nothing is mistaken for real activity. */
-export function DemoBadge({ className, label = "بيانات تجريبية" }: { className?: string; label?: string }) {
+export function DemoBadge({
+  className,
+  label = "بيانات تجريبية",
+}: {
+  className?: string;
+  label?: string;
+}) {
   return (
     <Badge variant="demo" className={cn("gap-1", className)}>
       <FlaskConical className="size-3" />

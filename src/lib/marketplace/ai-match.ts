@@ -20,9 +20,7 @@ export interface MatchResult {
   matches: ServiceMatch[];
 }
 
-export type MatchResponse =
-  | ({ ok: true } & MatchResult)
-  | { ok: false; error: string };
+export type MatchResponse = ({ ok: true } & MatchResult) | { ok: false; error: string };
 
 /** Compact, public-only description of each active service for the model. */
 export function buildCatalogDigest(services: Service[]): string {
